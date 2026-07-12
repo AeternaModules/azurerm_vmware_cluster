@@ -1,3 +1,7 @@
+output "vmware_clusters_id" {
+  description = "Map of id values across all vmware_clusters, keyed the same as var.vmware_clusters"
+  value       = { for k, v in azurerm_vmware_cluster.vmware_clusters : k => v.id }
+}
 output "vmware_clusters_cluster_node_count" {
   description = "Map of cluster_node_count values across all vmware_clusters, keyed the same as var.vmware_clusters"
   value       = { for k, v in azurerm_vmware_cluster.vmware_clusters : k => v.cluster_node_count }
